@@ -15,6 +15,7 @@ def sagemakerPipelineExecutionRole = "arn:aws:iam::259508681668:role/service-rol
 def awsRegion = "us-east-1"
 def artifactBucket = "calibucket-aws"
 
+
 def pipelineName = "sagemaker-" + sagemakerProjectName + "-" + sagemakerProjectId + "-modelbuild"
 
 // Get git details used in JOB DSL so that can be used for pipeline SCM also

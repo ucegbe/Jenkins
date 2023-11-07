@@ -148,7 +148,7 @@ def get_pipeline(
         role = sagemaker.session.get_execution_role(sagemaker_session)
 
     pipeline_session = get_pipeline_session(region, default_bucket)
-
+    print(f"THIS IS THE BUCKET {default_bucket}")
     # parameters for pipeline execution
     processing_instance_count = ParameterInteger(name="ProcessingInstanceCount", default_value=1)
     model_approval_status = ParameterString(
