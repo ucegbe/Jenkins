@@ -167,8 +167,6 @@ def get_pipeline(
         base_job_name=f"{base_job_prefix}/sklearn-abalone-preprocess",
         sagemaker_session=pipeline_session,
         role=role,
-        output_path=f"s3://{default_bucket}/skoutput/",
-        code_location=f"s3://{default_bucket}/skoutput/",
     )
     step_args = sklearn_processor.run(
         outputs=[
@@ -242,8 +240,6 @@ def get_pipeline(
         base_job_name=f"{base_job_prefix}/script-abalone-eval",
         sagemaker_session=pipeline_session,
         role=role,
-        output_path=f"s3://{default_bucket}/skoutput/",
-        code_location=f"s3://{default_bucket}/skoutput/",
     )
     step_args = script_eval.run(
         inputs=[
