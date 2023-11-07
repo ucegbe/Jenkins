@@ -13,7 +13,7 @@ def sagemakerProjectName = "JJ"
 def sagemakerProjectId = "p-62lnmcdd2d3w"
 def sagemakerPipelineExecutionRole = "arn:aws:iam::259508681668:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole"
 def awsRegion = "us-east-1"
-def artifactBucket = "sagemaker-project-p-62lnmcdd2d3w"
+def artifactBucket = "calibucket-aws"
 
 def pipelineName = "sagemaker-" + sagemakerProjectName + "-" + sagemakerProjectId + "-modelbuild"
 
