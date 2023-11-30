@@ -11,7 +11,7 @@ if (awsCredentialId == null) {
 // Sagemaker Project specific details
 def sagemakerProjectName = "JJ"
 def sagemakerProjectId = "p-62lnmcdd2d3w"
-def sagemakerPipelineExecutionRole = "arn:aws:iam::259508681668:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole"
+def sagemakerPipelineExecutionRole = "arn:aws:iam::259508681668:role/service-role/AmazonSageMaker-ExecutionRole-20210613T160452"
 def awsRegion = "us-east-1"
 def artifactBucket = "calibucket-aws"
 def kmskey ="arn:aws:kms:us-east-1:259508681668:key/5ecbfa81-faae-4706-b7ad-b5f4c11da62a"
