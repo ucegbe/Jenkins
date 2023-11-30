@@ -16,7 +16,6 @@ def awsRegion = "us-east-1"
 def artifactBucket = "calibucket-aws"
 def kmskey ="arn:aws:kms:us-east-1:259508681668:key/5ecbfa81-faae-4706-b7ad-b5f4c11da62a"
 def pipelineName = "sagemaker-" + sagemakerProjectName + "-" + sagemakerProjectId + "-modelbuild"
-
 // Get git details used in JOB DSL so that can be used for pipeline SCM also
 def jobName = getBinding().getVariables()['JOB_NAME']
 def gitUrl = getBinding().getVariables()['GIT_URL']
