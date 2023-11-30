@@ -13,6 +13,7 @@ pipeline {
     stage('Build and Install') {
       steps {
         sh '''pip3 install --upgrade --force-reinstall --target $HOME/.local/$SAGEMAKER_PROJECT_NAME_ID . "awscli>1.20.30"'''
+        echo ${SAGEMAKER_PIPELINE_ROLE_ARN}
       }
     }
     stage('Update and Run Sagemaker Pipeline') {
