@@ -49,11 +49,11 @@ from sagemaker.workflow.pipeline_context import PipelineSession
 
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
-with open(os.path.join(BASE_DIR, "config.yaml"), "r") as stream:
-    try:
-        config_file=yaml.safe_load(stream)
-    except yaml.YAMLError as exc:
-        print(exc)
+# with open(os.path.join(BASE_DIR, "config.yaml"), "r") as stream:
+#     try:
+#         config_file=yaml.safe_load(stream)
+#     except yaml.YAMLError as exc:
+#         print(exc)
         
 def get_sagemaker_client(region):
      """Gets the sagemaker client.

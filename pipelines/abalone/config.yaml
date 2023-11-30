@@ -1,0 +1,82 @@
+SchemaVersion: '1.0'
+SageMaker:    
+  AutoMLJob:
+  # https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html
+    AutoMLJobConfig:
+      SecurityConfig:
+        VolumeKmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/36438495-a476-479d-94a6-ff65a710cb1d'
+        VpcConfig:
+          SecurityGroupIds:
+            - 'sg-06917969aeea18da0'
+          Subnets:
+            - 'subnet-048c937219fe67c7e'
+            - 'subnet-0c87c661464a9f1b5'
+    OutputDataConfig:
+      KmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/6301ea5d-4f8d-4da8-a27a-1788916045f1'
+    RoleArn: 'arn:aws:iam::123456789123:role/service-role/SageMaker-compute-role'
+    Tags:
+    - Key: 'team'
+      Value: 'nyc'
+  TransformJob:
+  # https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html
+    DataCaptureConfig:
+      KmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/6301ea5d-4f8d-4da8-a27a-1788916045f1'
+    TransformOutput:
+      KmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/6301ea5d-4f8d-4da8-a27a-1788916045f1'
+    TransformResources:
+      VolumeKmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/36438495-a476-479d-94a6-ff65a710cb1d'  
+  Pipeline:
+  # https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePipeline.html
+    RoleArn: 'arn:aws:iam::123456789123:role/service-role/SageMaker-compute-role'
+    Tags:
+    - Key: 'team'
+      Value: 'nyc'
+  Model:
+  # https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html
+    EnableNetworkIsolation: true
+    ExecutionRoleArn: 'arn:aws:iam::123456789123:role/service-role/SageMaker-compute-role'
+    VpcConfig:
+      SecurityGroupIds:
+        - 'sg-06917969aeea18da0'
+      Subnets:
+        - 'subnet-048c937219fe67c7e'
+        - 'subnet-0c87c661464a9f1b5'
+    Tags:
+    - Key: 'team'
+      Value: 'nyc'
+  ProcessingJob:
+  # https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html
+    NetworkConfig:
+      EnableNetworkIsolation: false
+      VpcConfig:
+        SecurityGroupIds:
+          - 'sg-0a8a21eaa8a4c2d9c'
+        Subnets:
+          - 'subnet-01d792ef785e73bc7'
+          - 'subnet-031704d801af26344'  
+    ProcessingOutputConfig:
+      KmsKeyId: 'arn:aws:kms:us-east-1:785136787783:key/2632c98f-1bb3-4ce9-b4eb-ec9470019bc0'
+    ProcessingResources:
+      ClusterConfig:
+        VolumeKmsKeyId: 'arn:aws:kms:us-east-1:785136787783:key/2632c98f-1bb3-4ce9-b4eb-ec9470019bc0' 
+    RoleArn: 'arn:aws:iam::123456789123:role/service-role/SageMaker-compute-role'
+    Tags:
+    - Key: 'team'
+      Value: 'dna-nyc'
+  TrainingJob:
+  # https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html
+    EnableNetworkIsolation: true
+    OutputDataConfig:
+      KmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/6301ea5d-4f8d-4da8-a27a-1788916045f1'
+    ResourceConfig:
+      VolumeKmsKeyId: 'arn:aws:kms:us-east-2:123456789123:key/36438495-a476-479d-94a6-ff65a710cb1d'
+    RoleArn: 'arn:aws:iam::123456789123:role/service-role/SageMaker-compute-role'
+    VpcConfig:
+      SecurityGroupIds:
+        - 'sg-06917969aeea18da0'
+      Subnets:
+        - 'subnet-048c937219fe67c7e'
+        - 'subnet-0c87c661464a9f1b5' 
+    Tags:
+    - Key: 'team'
+      Value: 'nyc'    
