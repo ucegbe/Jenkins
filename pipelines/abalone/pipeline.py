@@ -150,8 +150,7 @@ def get_pipeline(
         an instance of a pipeline
     """
     sagemaker_session = get_session(region, default_bucket)
-    if role is None:
-        role = "arn:aws:iam::259508681668:role/service-role/AmazonSageMaker-ExecutionRole-20210613T160452"#sagemaker.session.get_execution_role(sagemaker_session)
+    role = "arn:aws:iam::259508681668:role/service-role/AmazonSageMaker-ExecutionRole-20210613T160452"#sagemaker.session.get_execution_role(sagemaker_session)
 
     pipeline_session = get_pipeline_session(region, default_bucket)
     print(f"THIS IS THE BUCKET {default_bucket}")
