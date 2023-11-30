@@ -71,7 +71,7 @@ def main():  # pragma: no cover
     if args.module_name is None:
         parser.print_help()
         sys.exit(2)
-    # tags = convert_struct(args.tags)
+    tags = convert_struct(args.tags)
 
     try:
         pipeline = get_pipeline_driver(args.module_name, args.kwargs)
