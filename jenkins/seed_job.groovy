@@ -14,7 +14,7 @@ def sagemakerProjectId = "p-62lnmcdd2d3w"
 def sagemakerPipelineExecutionRole = "arn:aws:iam::259508681668:role/service-role/AmazonSageMakerServiceCatalogProductsUseRole"
 def awsRegion = "us-east-1"
 def artifactBucket = "calibucket-aws"
-
+def kmskey ="arn:aws:kms:us-east-1:259508681668:key/5ecbfa81-faae-4706-b7ad-b5f4c11da62a"
 def pipelineName = "sagemaker-" + sagemakerProjectName + "-" + sagemakerProjectId + "-modelbuild"
 
 // Get git details used in JOB DSL so that can be used for pipeline SCM also
@@ -35,6 +35,7 @@ pipelineJob(pipelineName) {
         stringParam("SAGEMAKER_PROJECT_ID", sagemakerProjectId, "Sagemaker Project Id")
         stringParam("AWS_REGION", awsRegion, "Region where project is created")
         stringParam("SAGEMAKER_PIPELINE_ROLE_ARN", sagemakerPipelineExecutionRole, "Role to be used by Sagemaker pipeline to execute.")
+        stringParam("KMS_ARN", kmskey, "KMS KEYS.") 
         credentialsParam("AWS_CREDENTIAL") {
             description("AWS credentials to use for creating entity")
             defaultValue(awsCredentialId)

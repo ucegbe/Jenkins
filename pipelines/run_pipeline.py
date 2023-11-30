@@ -68,10 +68,10 @@ def main():  # pragma: no cover
     )
     args = parser.parse_args()
 
-    if args.module_name is None or args.role_arn is None:
+    if args.module_name is None:
         parser.print_help()
         sys.exit(2)
-    tags = convert_struct(args.tags)
+    # tags = convert_struct(args.tags)
 
     try:
         pipeline = get_pipeline_driver(args.module_name, args.kwargs)

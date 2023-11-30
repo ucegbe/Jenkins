@@ -9,7 +9,7 @@
 Implements a get_pipeline(**kwargs) method.
 """
 import os
-
+import yaml
 import boto3
 import sagemaker
 import sagemaker.session
@@ -49,7 +49,12 @@ from sagemaker.workflow.pipeline_context import PipelineSession
 
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
-
+with open(os.path.join(BASE_DIR, "config.yaml"), "r") as stream:
+    try:
+        config_file=yaml.safe_load(stream)
+    except yaml.YAMLError as exc:
+        print(exc)
+        
 def get_sagemaker_client(region):
      """Gets the sagemaker client.
 
@@ -132,6 +137,7 @@ def get_pipeline(
     base_job_prefix="Abalone",
     processing_instance_type="ml.m5.xlarge",
     training_instance_type="ml.m5.xlarge", 
+    kms=None,   
 ):
     """Gets a SageMaker ML Pipeline instance working with on abalone data.
 
@@ -166,6 +172,8 @@ def get_pipeline(
         instance_count=processing_instance_count,
         base_job_name=f"{base_job_prefix}/sklearn-abalone-preprocess",
         sagemaker_session=pipeline_session,
+        output_kms_key=kms,
+        volume_kms_key=kms,
         role=role,
     )
     step_args = sklearn_processor.run(
